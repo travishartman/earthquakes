@@ -1,4 +1,5 @@
 const fs = require('fs');
+const admZip = require('adm-zip');
 const request = require('request');
 const http = require('http');
 const urlForDownload = require('url');
@@ -96,12 +97,17 @@ function getShakemap(data){
 	    		download_file_wget(shakeMapURL,filepath)
 	    		
 	    		fs.writeFileSync(filepath+'/eqData.JSON', eqObject, (err) => {
+
+
 				    // throws an error, you could also catch it here
 				    if (err) throw err;
 
 				    // success case, the file was saved
 				    console.log('eqData saved!');
+				   
 				});
+				let test = "AAHAHAHAHAHA"
+				    unzip(test)
 							        
 		    };
 		});
@@ -110,6 +116,11 @@ function getShakemap(data){
 
 }
 
+function unzip(x){
+
+	console.log(x)
+
+}
 
 //function to create diretories w/ earthquake ID
 const createDir = (dirPath) => {
@@ -159,6 +170,5 @@ var download_file_wget = function(file_url, filepath) {
 
 
 // do all d3 stuff in node, 
-
 
 
